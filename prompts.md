@@ -59,3 +59,41 @@ Installed Express and configured Git to ignore `node_modules/` and `.env`.
 ## Development Notes
 
 The backend was developed incrementally and tested locally after implementation. Git commits were made in separate logical stages to keep the development history traceable.
+## 5. Backend Review & Improvements
+
+**Tool:** ChatGPT  
+**Date:** 2026-08-08  
+**Purpose:** To review the initial backend implementation and apply targeted improvements suggested during team review.
+
+### Prompt
+
+> Review my current Node.js + Express backend for the ABTalks hackathon.
+>
+> The backend currently contains a health-check endpoint and a landing-page API using mock JSON data.
+>
+> Suggest only the necessary improvements for the current hackathon stage, focusing on reliability, convenience for the team, and deployment readiness. Do not over-engineer the backend before frontend integration.
+>
+> In particular, review the package scripts, port configuration, file-path handling, and error handling for the landing-page API.
+
+### Result
+
+The review identified the following improvements:
+
+1. Added an `npm start` script using `node server.js`.
+2. Changed the hard-coded port to `process.env.PORT || 3000`.
+3. Used `path.join(__dirname, "data", "landing.json")` for a more reliable file path.
+4. Added `try/catch` error handling to `GET /api/landing`.
+5. Kept the backend lightweight and avoided unnecessary authentication, database, or other features before frontend integration.
+
+### Validation
+
+- Tested `GET /api/health`.
+- Tested `GET /api/landing`.
+- Confirmed the backend starts using `npm start`.
+- Confirmed the working tree after the changes was clean after committing.
+
+### Git
+
+**Commit:** `Improve backend configuration and error handling`
+
+**Branch:** `backend`
