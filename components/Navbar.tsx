@@ -1,9 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { getProfile } from "@/lib/profile";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -23,28 +22,12 @@ export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const profile = getProfile();
-  const name = (profile.name || "Student").trim();
-
-  const initials =
-    name
-      .split(/\s+/)
-      .map((part) => part.charAt(0))
-      .join("")
-      .slice(0, 2)
-      .toUpperCase() || "S";
-
   return (
     <>
       <header className="navbar">
         <Link href="/" className="navbar-brand">
-          <span className="navbar-mark">A</span>
           <span>ABTALKS</span>
         </Link>
-
-        <div className="navbar-profile">
-          <span className="navbar-initials">{initials}</span>
-        </div>
 
         <button
           className="menu-btn"
