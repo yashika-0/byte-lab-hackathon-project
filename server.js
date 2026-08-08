@@ -1,8 +1,9 @@
 const express = require("express");
 const fs = require("fs");
+const path = require("path");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
@@ -17,10 +18,18 @@ app.get("/api/health", (req, res) => {
 
 // Landing page API
 app.get("/api/landing", (req, res) => {
-    const data = fs.readFileSync("./data/landing.json", "utf8");
-    const landingData = JSON.parse(data);
+    try {
+        const filePath = path.join(__dirname, "data", "landing.json");
+        const data = fs.readFileSync(filePath, "utf8");
+        const landingData = JSON.parse(data);
 
-    res.json(landingData);
+        res.json(landingData);
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Failed to load landing page data"
+        });
+    }
 });
 
 app.listen(PORT, () => {
