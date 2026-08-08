@@ -1,0 +1,53 @@
+{
+  "challenge": {
+    "name": "ABTalks",
+    "durationDays": 60,
+    "targetAudience": "Indian college students",
+    "tagline": "Build. Learn. Share. Repeat."
+  },
+  "intro": {
+    "title": "60 Days. 60 Builds. One Learning Streak.",
+    "description": "ABTalks is a 60-day coding challenge where college students build something every day and share their learning journey publicly.",
+    "motivation": "Turn consistent learning into a visible portfolio of progress."
+  },
+  "howItWorks": [
+    {
+      "step": 1,
+      "title": "Build",
+      "description": "Create something every day and keep learning through practice."
+    },
+    {
+      "step": 2,
+      "title": "Commit",
+      "description": "Submit your GitHub commit as proof of your daily progress."
+    },
+    {
+      "step": 3,
+      "title": "Share",
+      "description": "Share your learning journey publicly through a LinkedIn post."
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Build Consistency",
+      "description": "Develop the habit of coding and making progress every day."
+    },
+    {
+      "title": "Build a Public Portfolio",
+      "description": "Turn your daily work into visible evidence of your skills."
+    },
+    {
+      "title": "Stay Accountable",
+      "description": "GitHub commits and LinkedIn posts make your progress measurable."
+    },
+    {
+      "title": "Learn by Building",
+      "description": "Apply what you learn instead of only consuming tutorials."
+    }
+  ],
+  "callToAction": {
+    "title": "Ready to start your 60-day journey?",
+    "description": "Start small, stay consistent, and let your progress speak for itself.",
+    "buttonText": "Start the Challenge"
+  }
+}
