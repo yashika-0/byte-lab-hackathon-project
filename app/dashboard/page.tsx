@@ -9,9 +9,12 @@ import { getProof, saveProof, clearProof, isValidProofUrl } from "@/lib/proof";
 const WEEK_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
 
 export default function Dashboard() {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [profile, setProfile] = useState<Profile | null>(null);
-  const [startDay, setStartDay] = useState(1);
+  const [tasks, setTasks] = useState<Task[]>(() => getTasks());
+  const [profile] = useState<Profile | null>(() => getProfile());
+  const [startDay] = useState(() => {
+  if (typeof window === "undefined") return 1;
+  return parseInt(localStorage.getItem("abtalksStartDay") || "1", 10);
+});
   const [github, setGithub] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [githubInvalid, setGithubInvalid] = useState(false);
@@ -21,14 +24,10 @@ export default function Dashboard() {
   const [submitted, setSubmitted] = useState(false);
   const justSubmittedRef = useRef(false);
 
-  // Initial load
-  useEffect(() => {
-    const assignedStart = applyAssignmentFromUrl();
-    setProfile(getProfile());
-    setTasks(getTasks());
-    const storedStart = parseInt(localStorage.getItem("abtalksStartDay") || "1", 10);
-    setStartDay(assignedStart ?? storedStart);
-  }, []);
+// Initial load
+useEffect(() => {
+  applyAssignmentFromUrl();
+}, []);
 
   const next = tasks.length
     ? tasks.find((t) => !t.done && t.day >= startDay) || tasks[tasks.length - 1]
@@ -49,7 +48,7 @@ export default function Dashboard() {
     setErrorMsg("");
     setSuccessMsg(saved.submitted ? `Proof submitted for Day ${String(next.day).padStart(2, "0")}. Your progress is saved on this device.` : "");
     setSubmitted(!!saved.submitted);
-  }, [next?.day]);
+  }, [next]);
 
   function toggleTask(day: number) {
     setTasks((prev) => {
@@ -171,12 +170,12 @@ export default function Dashboard() {
           <div className="big-day">{String(next.day).padStart(2, "0")}</div>
           <h2>{next.title}</h2>
           <p>Complete the task, then mark it done. Small proof every day adds up.</p>
-          <button
-            className={`btn primary${next.done ? " outline" : ""}`}
-            onClick={() => toggleTask(next.day)}
-          >
-            {next.done ? "✓ Task completed" : "Mark task complete →"}
-          </button>
+          <Link
+  href={`/day/${next.day}`}
+  className={`btn primary${next.done ? " outline" : ""}`}
+>
+  {next.done ? "View today's proof →" : "Open today's challenge →"}
+</Link>
         </article>
 
         <article className="panel progress-card">

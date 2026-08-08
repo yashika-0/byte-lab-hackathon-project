@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getTasks, saveTasks, completedCount, type Task } from "@/lib/tasks";
 
 const TRACKS = [
@@ -11,11 +11,7 @@ const TRACKS = [
 ];
 
 export default function Challenge() {
-  const [tasks, setTasks] = useState<Task[]>([]);
-
-  useEffect(() => {
-    setTasks(getTasks());
-  }, []);
+  const [tasks, setTasks] = useState<Task[]>(() => getTasks());
 
   function toggleTask(day: number) {
     setTasks((prev) => {

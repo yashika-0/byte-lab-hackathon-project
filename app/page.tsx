@@ -27,11 +27,7 @@ export default async function Home() {
     <main>
       <section className="hero container">
         <p className="eyebrow">{eyebrow}</p>
-        <h1>
-  Build in public.
-  <br />
-  <em>Become undeniable.</em>
-</h1>
+        <h1>{heroTitle}</h1>
         <p className="hero-text">{heroText}</p>
         <div className="actions">
           <Link className="btn primary" href="/dashboard">
