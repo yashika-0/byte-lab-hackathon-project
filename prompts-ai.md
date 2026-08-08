@@ -181,3 +181,34 @@ ChatGPT provided a Git workflow for reviewing changed files, removing accidental
 ### Human Changes
 
 The team reviewed the Git changes, removed unnecessary files, committed the backend work, and pushed it to the appropriate branch while keeping the main branch unchanged.
+
+---
+
+## 9. Landing Page UX Improvements
+
+**Tool:** ChatGPT
+
+### Prompt
+
+> I'm enhancing the ABtalks landing page frontend based on the attached UX audit. Please implement the following and provide the corresponding code:
+>
+> * **Single CTA** — keep "Start your streak" as the only primary action; any future secondary link must be visually subordinate.
+> * **Trust signal** — replace the bare stat with an avatar cluster ("+2,400 others") or a link to a public leaderboard.
+> * **Proof-of-work example** — a mock GitHub commit + LinkedIn post shown side by side under the hero.
+> * **Pricing clarity** — "Free to join" stated near the CTA.
+> * **Commit Strip legend** — Completed / Upcoming / Missed, plus a reassurance line: "One missed day won't reset your streak."
+> * **Testimonial** — a named student, school, and specific outcome, not a generic quote.
+> * **Track badges** — Software Engineering · Data Science · AI, shown as pills under the subhead.
+> * **Footer** — working links to About / Privacy / Terms / Contact.
+> * **Mobile** — CTA must stay in-viewport at 390px width after new sections are added.
+> * **Motion** — one restrained fade-up on hero load only, no additional animation.
+>
+> Suggested section order: Hero → Proof Example → Commit Strip → How It Works → Testimonial → Footer.
+
+### Result
+
+ChatGPT provided frontend code and recommendations implementing the UX audit requirements, including a single primary CTA, trust signals, proof-of-work examples, pricing clarity, commit-status indicators, testimonial content, track badges, footer navigation, responsive mobile behavior, and restrained hero animation.
+
+### Human Changes
+
+The team integrated the suggested UX improvements into the landing page, adapted the generated content and styling to match the project's existing design, and verified the layout and CTA visibility at mobile width.
