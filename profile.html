@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Profile — ABTalks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600;1,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar"><a href="index.html" class="logo"><span>A</span> ABTALKS</a><button class="menu-btn" id="menuBtn">☰</button>
+<nav id="navMenu"><a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="challenge.html">Challenge</a><a class="active" href="profile.html">Profile</a><a href="about.html">About</a><a class="nav-cta" href="admin.html">Admin ↗</a></nav></header>
+<main class="container profile-page">
+<p class="eyebrow">STUDENT PROFILE</p><h1>Know your<br><em>builder.</em></h1>
+<div class="profile-grid">
+<section class="profile-card"><div class="profile-avatar-large" id="profileAvatar">S</div><h2 id="profileNamePreview">Student</h2><p id="profileEmailPreview">student@example.com</p><p id="profileCollegePreview">College / University</p><a class="btn outline" href="dashboard.html">Back to dashboard →</a></section>
+<section class="profile-card"><h2>Edit profile</h2>
+<form id="profileForm">
+<div class="profile-field"><label>FULL NAME</label><input id="profileName" required></div>
+<div class="profile-field"><label>EMAIL</label><input id="profileEmail" type="email" required></div>
+<div class="profile-field"><label>COLLEGE / UNIVERSITY</label><input id="profileCollege" required></div>
+<div class="profile-field"><label>CHALLENGE TRACK</label><select id="profileTrack"><option>BUILD</option><option>LEARN</option><option>PUBLIC</option><option>CONNECT</option></select></div>
+<button class="btn primary" type="submit">Save profile →</button>
+<p class="proof-success" id="profileSaved">Profile saved on this device.</p>
+</form></section>
+</div></main>
+<footer><span>ABTALKS / 60 DAY CHALLENGE</span><span>Build. Learn. Share. Repeat.</span></footer>
+<script src="script.js"></script><script>initProfile();</script>
+</body></html>
