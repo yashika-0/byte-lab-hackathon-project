@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — ABTalks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <a href="index.html" class="logo"><span>A</span> ABTALKS</a>
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a class="active" href="dashboard.html">Dashboard</a>
+    <a href="challenge.html">Challenge</a>
+    <a href="profile.html">Profile</a>
+    <a href="about.html">About</a>
+    <a class="nav-cta" href="challenge.html">View challenge ↗</a>
+  </nav>
+</header>
+
+<main class="container dashboard">
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">DAY <span id="currentDay">01</span> / 60</p>
+      <h1>Keep the promise,<br><em>Student.</em></h1>
+    </div>
+    <div class="page-actions"><a class="btn outline" href="profile.html">My profile ↗</a><a class="btn outline" href="challenge.html">View full challenge ↗</a></div>
+  </div>
+
+  <section class="profile-strip">
+    <div class="profile-main">
+      <div class="avatar" id="dashboardAvatar">S</div>
+      <div>
+        <h3 id="dashboardStudentName">Student</h3>
+        <p id="dashboardStudentMeta">Your ABTalks student profile</p>
+      </div>
+    </div>
+    <div class="profile-meta">
+      <div>TRACK<b id="dashboardTrack">BUILD</b></div>
+      <div>STATUS<b id="dashboardStatus">ACTIVE</b></div>
+    </div>
+  </section>
+
+  <section class="dashboard-grid">
+    <article class="panel today">
+      <div class="panel-top"><span>TODAY'S TASK</span><span class="orange">●</span></div>
+      <div class="big-day" id="taskDay">01</div>
+      <h2 id="todayTitle">Build your first useful API</h2>
+      <p id="todayDescription">Complete the task, then mark it done. Small proof every day adds up.</p>
+      <button class="btn primary" id="completeToday">Mark task complete →</button>
+    </article>
+
+    <article class="panel progress-card">
+      <div class="panel-top"><span>YOUR PROGRESS</span><span id="progressText">0%</span></div>
+      <div class="progress-ring" id="progressRing"><div><strong id="completedCount">0</strong><small>TASKS</small></div></div>
+      <div class="progress-row"><span>Challenge</span><b id="progressPercent">0%</b></div>
+      <div class="bar"><i id="progressBar"></i></div>
+    </article>
+
+    <article class="panel streak">
+      <div class="panel-top"><span>CURRENT STREAK</span><span>🔥</span></div>
+      <strong id="streakNumber">0</strong>
+      <small>days in a row</small>
+      <div class="week" id="week"></div>
+    </article>
+
+    <article class="panel recent">
+      <div class="panel-top"><span>RECENT TASKS</span><a href="challenge.html">SEE ALL →</a></div>
+      <div id="recentTasks"></div>
+    </article>
+  </section>
+
+  <section class="proof-section" id="proofOfWork">
+    <div class="proof-heading">
+      <div>
+        <p class="eyebrow">LEAVE YOUR RECEIPT</p>
+        <h2>Show the work.</h2>
+      </div>
+      <span class="proof-step">02 / 02</span>
+    </div>
+
+    <form class="proof-card" id="proofForm">
+      <div class="proof-intro">
+        <span>PROOF OF WORK</span>
+        <p>Submit the links that show what you built or shared today. Your links stay yours — we only use them to mark the day complete.</p>
+      </div>
+
+      <div class="proof-field">
+        <label for="githubUrl">GITHUB REPOSITORY OR COMMIT URL</label>
+        <span class="field-icon">⌘</span>
+        <input id="githubUrl" name="githubUrl" type="url" placeholder="https://github.com/you/project/commit/..." autocomplete="url">
+        <small>Paste a repository, commit, pull request, or file URL.</small>
+      </div>
+
+      <div class="proof-field">
+        <label for="linkedinUrl">LINKEDIN POST URL</label>
+        <span class="field-icon">in</span>
+        <input id="linkedinUrl" name="linkedinUrl" type="url" placeholder="https://linkedin.com/posts/..." autocomplete="url">
+        <small>Share a short progress update so your work is visible.</small>
+      </div>
+
+      <p class="proof-error" id="proofError" role="alert"></p>
+      <p class="proof-success" id="proofSuccess" role="status"></p>
+
+      <div class="proof-actions">
+        <button class="btn primary" type="submit" id="submitProof">Submit today's proof <span>→</span></button>
+        <button class="btn outline proof-clear" type="button" id="clearProof">Clear</button>
+      </div>
+    </form>
+
+    <div class="proof-note">
+      <span>↳</span>
+      <div><strong>Not ready to post yet?</strong><br><span>Your links are saved on this device if you come back later.</span></div>
+    </div>
+  </section>
+
+  <section class="milestone">
+    <div>
+      <p class="eyebrow">NEXT MILESTONE</p>
+      <h2>First 7-day streak.</h2>
+      <p>Keep showing up. Your next badge unlocks after seven completed days.</p>
+    </div>
+    <div class="milestone-number"><span id="milestoneCount">0</span> <small>/ 07</small></div>
+  </section>
+</main>
+
+<footer><span>ABTALKS / 60 DAY CHALLENGE</span><span>Build. Learn. Share. Repeat.</span></footer>
+<script src="script.js"></script>
+<script>initDashboard();</script>
+</body>
+</html>
