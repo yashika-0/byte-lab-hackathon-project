@@ -77,6 +77,107 @@ AI suggested these Key Improvements :
 Then provide a complete, step-by-step project setup guide covering the chosen framework, dependencies, Tailwind CSS, shadcn/ui configuration, routing, project structure, mock data modeling, and development setup. Explain the purpose of each technology and setup step, and recommend an organization that allows three team members to work efficiently in parallel.
 
 ### Result
- => Set Up in VS Code is completed , ready for working.
+ - Set Up in VS Code is completed , ready for working.
 
 ---
+
+## 4. Backend Architecture & API Planning
+
+**Tool:** ChatGPT
+
+### Prompt
+
+> I am building the backend for Problem Statement 1 of the ABTalks hackathon.
+>
+> ABTalks is a 60-day coding challenge for Indian college students where students build something every day and maintain a public learning streak by submitting a GitHub commit and a LinkedIn post.
+>
+> The required frontend routes are `/`, `/dashboard`, and `/day/12`.
+>
+> I am responsible only for the backend, while the frontend team will use HTML, CSS and JavaScript.
+>
+> Backend constraints:
+>
+> * Node.js + Express.js
+> * Mock/static data is acceptable
+>
+> Help me identify the backend responsibilities, required API endpoints, data structures, and implementation order.
+
+### Result
+
+ChatGPT identified the backend responsibilities, suggested the required API endpoints and data structures, and provided an implementation order for building the backend.
+
+### Human Changes
+
+The team reviewed the suggested architecture and selected the backend responsibilities and API structure that were relevant to the hackathon requirements.
+
+---
+
+## 5. Backend Project Setup
+
+**Tool:** ChatGPT
+
+### Prompt
+
+> Guide me step-by-step to set up the Node.js + Express.js backend for the ABTalks redesign. I am working in an existing GitHub repository and want to keep the backend organized separately from the frontend. Explain the required files, folders, dependencies, and how to run and test the Express server locally.
+
+### Result
+
+ChatGPT provided a step-by-step Express.js setup, including the recommended backend folder structure, required dependencies, server files, and commands for running and testing the server locally.
+
+### Human Changes
+
+The backend was organized separately from the frontend within the existing repository, and the suggested setup was adapted to the team's project structure.
+
+---
+
+## 6. Landing Page API
+
+**Tool:** ChatGPT
+
+### Prompt
+
+> Help me implement the first backend API for the ABTalks redesign. The frontend needs data for the landing page. I want to keep the data in a JSON file rather than hardcoding it inside the Express route. Create an Express endpoint that reads the landing-page data from `data/landing.json` and returns it as JSON.
+
+### Result
+
+ChatGPT provided an Express API endpoint that reads the landing-page information from `data/landing.json` and returns the data as a JSON response for the frontend.
+
+### Human Changes
+
+The team integrated the endpoint into the backend and used a separate JSON data file to keep the landing-page content independent from the route logic.
+
+---
+
+## 7. Backend Health Check
+
+**Tool:** ChatGPT
+
+### Prompt
+
+> I have an Express backend for the ABTalks project. Add a simple `/api/health` endpoint that can be used to verify that the backend server is running correctly. Also explain how I can test the endpoint locally.
+
+### Result
+
+ChatGPT provided a simple `/api/health` endpoint and explained how to run the server and test the endpoint locally to confirm that the backend was functioning correctly.
+
+### Human Changes
+
+The health-check endpoint was added to the backend and tested locally to verify that the Express server was running correctly.
+
+---
+
+## 8. Git & Backend Version Control
+
+**Tool:** ChatGPT
+
+### Prompt
+
+> I have completed the initial backend setup and health-check endpoint. Help me verify my Git changes, remove any accidental files, commit the changes with an appropriate message, and push the backend branch to GitHub without affecting the main branch.
+
+### Result
+
+ChatGPT provided a Git workflow for reviewing changed files, removing accidental files, committing the backend changes, and safely pushing the work to the backend branch without modifying the main branch.
+
+### Human Changes
+
+The team reviewed the Git changes, removed unnecessary files, committed the backend work, and pushed it to the appropriate branch while keeping the main branch unchanged.
