@@ -45,9 +45,10 @@
       "description": "Apply what you learn instead of only consuming tutorials."
     }
   ],
-  "callToAction": {
-    "title": "Ready to start your 60-day journey?",
-    "description": "Start small, stay consistent, and let your progress speak for itself.",
-    "buttonText": "Start the Challenge"
-  }
+ "callToAction": {
+  "title": "Ready to start your 60-day journey?",
+  "description": "Start small, stay consistent, and let your progress speak for itself.",
+  "buttonText": "Start the Challenge",
+  "targetRoute": "/dashboard"
+}
 }
