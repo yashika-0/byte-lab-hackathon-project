@@ -1,0 +1,24 @@
+{
+  "name": "byte-lab-hackathon-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start": "node server.js"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashika-0/byte-lab-hackathon-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yashika-0/byte-lab-hackathon-project/issues"
+  },
+  "homepage": "https://github.com/yashika-0/byte-lab-hackathon-project#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
