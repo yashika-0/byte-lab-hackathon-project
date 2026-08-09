@@ -9,12 +9,9 @@ import { getProof, saveProof, clearProof, isValidProofUrl } from "@/lib/proof";
 const WEEK_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
 
 export default function Dashboard() {
-  const [tasks, setTasks] = useState<Task[]>(() => getTasks());
-  const [profile] = useState<Profile | null>(() => getProfile());
-  const [startDay] = useState(() => {
-  if (typeof window === "undefined") return 1;
-  return parseInt(localStorage.getItem("abtalksStartDay") || "1", 10);
-});
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [startDay, setStartDay] = useState(1);
   const [github, setGithub] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [githubInvalid, setGithubInvalid] = useState(false);
@@ -24,10 +21,14 @@ export default function Dashboard() {
   const [submitted, setSubmitted] = useState(false);
   const justSubmittedRef = useRef(false);
 
-// Initial load
-useEffect(() => {
-  applyAssignmentFromUrl();
-}, []);
+// Initial load — runs only on the client, after mount
+  useEffect(() => {
+    const assignedStart = applyAssignmentFromUrl();
+    setProfile(getProfile());
+    setTasks(getTasks());
+    const storedStart = parseInt(localStorage.getItem("abtalksStartDay") || "1", 10);
+    setStartDay(assignedStart ?? storedStart);
+  }, []);
 
   const next = tasks.length
     ? tasks.find((t) => !t.done && t.day >= startDay) || tasks[tasks.length - 1]
@@ -49,7 +50,7 @@ useEffect(() => {
     setSuccessMsg(saved.submitted ? `Proof submitted for Day ${String(next.day).padStart(2, "0")}. Your progress is saved on this device.` : "");
     setSubmitted(!!saved.submitted);
   }, [next]);
-
+  
   function toggleTask(day: number) {
     setTasks((prev) => {
       const updated = prev.map((t) => (t.day === day ? { ...t, done: !t.done } : t));
@@ -224,15 +225,26 @@ useEffect(() => {
           </div>
           <div>
             {tasks.slice(0, 6).map((task) => (
-              <button key={task.day} className="task-row" onClick={() => toggleTask(task.day)}>
-                <span className={`check${task.done ? " done" : ""}`}>{task.done ? "✓" : ""}</span>
-                <span className="task-info">
-                  <b>DAY {String(task.day).padStart(2, "0")}</b>
-                  <span>{task.title}</span>
-                </span>
-                <span className="task-time">{task.time}</span>
-              </button>
-            ))}
+  <Link key={task.day} href={`/day/${task.day}`} className="task-row">
+    <span
+      className={`check${task.done ? " done" : ""}`}
+      role="button"
+      aria-label={task.done ? "Mark as not done" : "Mark as done"}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleTask(task.day);
+      }}
+    >
+      {task.done ? "✓" : ""}
+    </span>
+    <span className="task-info">
+      <b>DAY {String(task.day).padStart(2, "0")}</b>
+      <span>{task.title}</span>
+    </span>
+    <span className="task-time">{task.time}</span>
+  </Link>
+))}
           </div>
         </article>
       </section>

@@ -124,6 +124,8 @@ export default async function Home() {
 
         <p>{cta.description}</p>
 
+        <span className="quote-mark quote-mark-close">&rdquo;</span>
+
         <Link className="btn primary" href="/challenge">
           {cta.buttonText}
         </Link>

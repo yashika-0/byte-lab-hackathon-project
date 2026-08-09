@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { getTasks, saveTasks, completedCount, type Task } from "@/lib/tasks";
 
 const TRACKS = [
@@ -11,7 +12,11 @@ const TRACKS = [
 ];
 
 export default function Challenge() {
-  const [tasks, setTasks] = useState<Task[]>(() => getTasks());
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  useEffect(() => {
+    setTasks(getTasks());
+  }, []);
 
   function toggleTask(day: number) {
     setTasks((prev) => {
@@ -50,8 +55,19 @@ export default function Challenge() {
         {tasks.map((task) => (
           <div key={task.day} className={`timeline-item${task.done ? " completed" : ""}`}>
             <div className="timeline-day">DAY {String(task.day).padStart(2, "0")}</div>
-            <button className="timeline-card" onClick={() => toggleTask(task.day)}>
-              <span className="timeline-check">{task.done ? "✓" : "+"}</span>
+            <Link href={`/day/${task.day}`} className="timeline-card">
+              <span
+                className="timeline-check"
+                role="button"
+                aria-label={task.done ? "Mark as not done" : "Mark as done"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleTask(task.day);
+                }}
+              >
+                {task.done ? "✓" : "+"}
+              </span>
               <div>
                 <small>
                   {task.category} · {task.time}
@@ -59,7 +75,7 @@ export default function Challenge() {
                 <h3>{task.title}</h3>
               </div>
               <span>↗</span>
-            </button>
+            </Link>
           </div>
         ))}
       </div>
