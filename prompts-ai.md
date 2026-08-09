@@ -393,3 +393,224 @@ Generated a responsive admin dashboard with demo statistics, participant managem
 ### Human Changes
 
 Connected the admin page to the existing ABTALKS styling and JavaScript structure and adjusted demo data, navigation, layout, and interactions to match the project.
+## 18. Fix React/ESLint Issues
+
+**Tool:** ChatGPT  
+**Tech Stack:** Next.js 16, React, TypeScript, ESLint
+
+### Prompt
+
+> Audit the ABTalks Next.js 16 project and fix all ESLint errors and warnings without changing the intended UI or functionality.
+>
+> Fix issues involving React effects/state, unused imports and variables, missing dependencies, and Next.js Google font loading.
+>
+> Preserve the App Router architecture and existing functionality.
+>
+> Verify with:
+> - `npm run lint` → 0 errors/warnings
+> - `npm run build` → successful build
+
+### Result
+
+Fixed the identified React, ESLint, and Next.js issues while preserving the existing application behavior.
+
+### Human Changes
+
+Verified the affected pages and ensured the existing UI and functionality remained unchanged.
+
+
+## 19. Fix Dashboard Challenge & Proof Flow
+
+**Tool:** ChatGPT  
+**Tech Stack:** Next.js 16, React, TypeScript, localStorage
+
+### Prompt
+
+> Audit and fix the ABTalks dashboard and daily challenge flow.
+>
+> Ensure the dashboard identifies the current incomplete day, `/day/[id]` loads the correct task, GitHub/LinkedIn proof is validated and saved locally, completed days update progress/streaks, and existing proof loads correctly.
+>
+> Fix broken state handling, race conditions, or unnecessary effects without redesigning the UI.
+>
+> Verify:
+> - `npm run lint` → 0 errors/warnings
+> - `npm run build` → successful
+> - `/day/1` through `/day/60` work correctly
+
+### Result
+
+Fixed the challenge navigation, task loading, proof submission, completion tracking, and dashboard update flow.
+
+### Human Changes
+
+Tested the challenge-day flow and verified navigation, proof handling, and progress updates across different challenge days.
+
+
+## 20. Fix Profile & Assignment Behavior
+
+**Tool:** ChatGPT  
+**Tech Stack:** Next.js 16, React, TypeScript, localStorage
+
+### Prompt
+
+> Audit and fix the ABTalks profile and student-assignment functionality.
+>
+> Ensure URL parameters (`student`, `email`, `college`, `track`, `start`) are correctly applied to the saved profile and assigned starting day.
+>
+> Ensure the profile can load, edit, and save user information locally with a save confirmation, and that the dashboard uses the assigned starting day correctly.
+>
+> Avoid React setState-in-effect issues and do not introduce a backend/database.
+>
+> Verify:
+> - `npm run lint` → 0 errors/warnings
+> - `npm run build` → successful
+
+### Result
+
+Fixed profile loading/saving and URL-based student assignment behavior while maintaining localStorage persistence.
+
+### Human Changes
+
+Verified profile editing, assignment parameters, starting-day behavior, and dashboard integration.
+
+
+## 21. Fix ABTalks Branding & Navbar
+
+**Tool:** ChatGPT  
+**Tech Stack:** Next.js 16, React, TypeScript, CSS
+
+### Prompt
+
+> Fix the ABTalks navbar branding without changing its overall layout or functionality.
+>
+> Remove the incorrect extra "A" causing `AABTALKS`, remove the unwanted profile initial/S from the navbar, and remove any unused state, effects, or imports related to those initials.
+>
+> Keep all navigation links and mobile navigation functionality intact.
+>
+> The navbar should display the correct `ABTALKS` branding with no unexpected initials or avatar.
+
+### Result
+
+Corrected the ABTALKS navbar branding and removed the unwanted profile-initial element.
+
+### Human Changes
+
+Verified the desktop and mobile navbar and confirmed that navigation functionality remained intact.
+
+
+## 22. Restore Hero Typography
+
+**Tool:** ChatGPT  
+**Tech Stack:** Next.js 16, React, TypeScript, CSS, Playfair Display
+
+### Prompt
+
+> Restore the intended ABTalks homepage hero typography.
+>
+> Style the headline:
+>
+> `Build in public.`
+> `Become undeniable.`
+>
+> Use the existing bold sans-serif cream/white style for the first line and Playfair Display serif, italic, orange styling for the second line.
+>
+> Structure the text with separate elements so each line can be styled independently.
+>
+> Remove the unused `heroTitle` variable and preserve the existing responsive layout.
+>
+> Verify with:
+> - `npm run lint`
+> - `npm run build`
+> - desktop and mobile layouts
+
+### Result
+
+Restored the intended two-style hero typography and removed the unused hero variable.
+
+### Human Changes
+
+Verified the typography, colors, responsiveness, and overall hero layout against the intended ABTalks design.
+## 23. Edge-Case Audit
+
+**Tool:** ChatGPT  
+**Tech Stack:** Next.js 16, React, TypeScript, localStorage
+
+### Prompt
+
+> Audit the ABTalks frontend against the required hackathon edge cases:
+>
+> - 0-day streak
+> - Empty/default profile
+> - Missed a day and then resumed
+>
+> Determine whether each case is genuinely handled correctly or merely happens not to crash.
+>
+> Be honest about any real gaps and do not introduce speculative fixes for behavior that is already acceptable.
+
+### Result
+
+Audited the required edge cases and identified whether the existing implementation handled each scenario correctly or had an actual functional gap.
+
+### Human Changes
+
+Reviewed the identified cases and applied only the fixes that were necessary.
+
+
+## 24. Hackathon Requirements & Final UI Audit
+
+**Tool:** ChatGPT  
+**Tech Stack:** Next.js 16, React, TypeScript, CSS, localStorage
+
+### Prompt
+
+> Review the current ABTalks frontend against the hackathon requirements and judging criteria.
+>
+> Check:
+> - Required routes
+> - 390px mobile responsiveness
+> - Challenge-day navigation
+> - Proof submission
+> - Streak and progress behavior
+> - Profile/default state
+> - Backend integration
+>
+> Identify only issues that could materially affect the demo or judging. Do not make speculative changes.
+
+### Result
+
+Reviewed the frontend against the required functionality and identified the remaining issues that could affect the hackathon demo or judging.
+
+### Human Changes
+
+Verified the identified areas on the current implementation and fixed only the issues that were necessary.
+
+
+## 25. Final Production Readiness Check
+
+**Tool:** ChatGPT  
+**Tech Stack:** Next.js 16, React, TypeScript, localStorage, Express.js, Vercel, Render
+
+### Prompt
+
+> Perform a final production-readiness check of the ABTalks frontend.
+>
+> Verify:
+> - Lint and build
+> - Required routes
+> - Console/runtime errors
+> - Mobile behavior
+> - Render backend integration
+> - Fallback behavior
+> - Overall deployed functionality
+>
+> Confirm whether the frontend branch is ready for the final hackathon demo.
+>
+> Do not make unnecessary changes if everything is already working.
+
+### Result
+
+Performed a final verification of the frontend build, routes, runtime behavior, responsiveness, and backend integration to determine whether it was ready for the final demo.
+
+### Human Changes
+
+Verified the deployed application and addressed only the remaining issues required before the final submission.
