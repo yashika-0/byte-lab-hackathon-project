@@ -247,7 +247,7 @@ export default function ChallengeDay({ params }: Props) {
                 : "Submit today's proof →"}
             </button>
 
-            <Link href="/dashboard" className="btn outline">
+            <Link href="/dashboard" className="btn outline proof-clear">
               Back to dashboard
             </Link>
           </div>
