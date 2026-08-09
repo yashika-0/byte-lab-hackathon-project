@@ -1,69 +1,135 @@
-import Image from "next/image";
+import Link from "next/link";
+import { fetchLanding } from "@/lib/api";
 
-export default function Home() {
+export default async function Home() {
+  const data = await fetchLanding();
+
+  const eyebrow =
+    data?.challenge.tagline || "60 DAYS / BUILD IN PUBLIC";
+
+  const heroTitle = (
+    <>
+      Build in public.
+      <br />
+      <em>Become undeniable.</em>
+    </>
+  );
+
+  const heroText =
+    data?.intro.description ||
+    "A simple daily system for students who want to stop consuming and start building.";
+
+  const days = data?.challenge.durationDays ?? 60;
+
+  const steps = data?.howItWorks || [
+    {
+      step: 1,
+      title: "Ship something small every day.",
+      description: "",
+    },
+    {
+      step: 2,
+      title: "Learn only what you need to move forward.",
+      description: "",
+    },
+    {
+      step: 3,
+      title: "Share your work and collect feedback.",
+      description: "",
+    },
+  ];
+
+  const cta = data?.callToAction || {
+    title: "Keep the promise, not the excuse.",
+    description:
+      "Consistency beats motivation. Your dashboard makes the next step obvious.",
+    buttonText: "Start the Challenge",
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      <section className="hero">
+        <div className="container">
+          <p className="eyebrow">{eyebrow}</p>
+
+          <h1>{heroTitle}</h1>
+
+          <p className="hero-copy">{heroText}</p>
+
+          <div className="hero-actions">
+            <Link className="btn primary" href="/challenge">
+              Start the {days}-day challenge →
+            </Link>
+
+            <Link className="text-link" href="#how-it-works">
+              See how it works ↗
+            </Link>
+          </div>
+
+          <div className="line" />
+
+          <div className="stats">
+            <div>
+              <strong>{days}</strong>
+              <small>DAYS</small>
+            </div>
+
+            <div>
+              <strong>01</strong>
+              <small>TASK / DAY</small>
+            </div>
+
+            <div>
+              <strong>03</strong>
+              <small>CORE HABITS</small>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="cream" id="how-it-works">
+        <div className="container two-col">
+          <div>
+            <p className="eyebrow dark">THE IDEA</p>
+
+            <h2>
+              Make your first
+              <br />
+              <em>useful</em> thing.
+            </h2>
+          </div>
+
+          <div>
+            <p className="large-copy">
+              {data?.intro.motivation ||
+                "Your project does not need to be perfect. It needs to exist."}
+            </p>
+
+            <ul className="feature-list">
+              {steps.map((step) => (
+                <li key={step.step}>
+                  <b>{String(step.step).padStart(2, "0")}</b>{" "}
+                  {step.title}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="container quote">
+        <span className="quote-mark">&ldquo;</span>
+
+        <h2>{cta.title}</h2>
+
+        <p>{cta.description}</p>
+
+        <span className="quote-mark quote-mark-close">&rdquo;</span>
+
+        <Link className="btn primary" href="/challenge">
+          {cta.buttonText}
+        </Link>
+      </section>
+    </main>
   );
 }

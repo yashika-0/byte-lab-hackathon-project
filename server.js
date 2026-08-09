@@ -1,6 +1,6 @@
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
+import express from "express";
+import fs from "fs";
+import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,7 +24,7 @@ app.get("/api/landing", (req, res) => {
         const landingData = JSON.parse(data);
 
         res.json(landingData);
-    } catch (error) {
+    } catch {
         res.status(500).json({
             success: false,
             message: "Failed to load landing page data"

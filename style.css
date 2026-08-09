@@ -1,8 +1,3 @@
-@import "tailwindcss";
-
-/* ABTalks V1 styles — migrated as-is for exact visual parity.
-   TODO (cleanup pass, later): convert to Tailwind utilities. */
-
 :root{
   --bg:#11110f;--panel:#191916;--cream:#f2eee4;--ink:#171713;
   --orange:#ff6b22;--muted:#8f8d84;--line:#393833;--white:#f7f5ef;
@@ -28,18 +23,8 @@ h1{font-size:clamp(52px,8vw,94px);line-height:.94;letter-spacing:-.05em;font-wei
 h1 em,h2 em{font-family:"Playfair Display",serif;color:var(--orange)}
 .hero{padding:120px 0 70px;min-height:640px}
 .hero h1{margin:22px 0 28px}
-.hero h1 span {
-  display: block;
-}
-.hero h1 em {
-  display: block;
-  color: var(--orange);
-  font-family: "Playfair Display", serif;
-  font-style: italic;
-  font-weight: 600;
-}
 .hero-text{max-width:550px;color:#aaa79d;line-height:1.7;font-size:17px}
-.hero-actions{display:flex;gap:24px;align-items:center;margin-top:36px}
+.actions{display:flex;gap:24px;align-items:center;margin-top:32px}
 .btn{display:inline-block;padding:13px 18px;border:1px solid transparent;font-weight:700}
 .primary{background:var(--orange);border-color:var(--orange);color:#17110d}
 .primary:hover{filter:brightness(1.08)}
@@ -59,7 +44,6 @@ h1 em,h2 em{font-family:"Playfair Display",serif;color:var(--orange)}
 .feature-list b{font:11px "DM Mono";margin-right:18px}
 .quote{padding:120px 0 160px}
 .quote-mark{font:120px "Playfair Display";color:var(--orange);line-height:.6}
-.quote-mark-close{display:block;text-align:right;margin:10px 0 0}
 .quote p{color:var(--muted);max-width:450px}
 .dashboard,.challenge,.about{padding:75px 0 130px;min-height:720px}
 .page-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:35px}
@@ -82,6 +66,7 @@ h1 em,h2 em{font-family:"Playfair Display",serif;color:var(--orange)}
 .check{width:18px;height:18px;border:1px solid #666257;display:grid;place-items:center}.check.done{background:var(--orange);border-color:var(--orange);color:#111}
 .task-info{display:flex;flex-direction:column;gap:6px}.task-info b{font:10px "DM Mono";color:var(--orange)}.task-time{color:var(--muted);font-size:12px}
 
+/* Proof of work */
 .proof-section{margin-top:55px;padding-top:50px;border-top:1px solid var(--line)}
 .proof-heading{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
 .proof-heading h2{font:600 clamp(46px,6vw,72px)/.98 "Playfair Display",serif;letter-spacing:-.04em;margin:10px 0 0;color:var(--white)}
@@ -110,9 +95,11 @@ h1 em,h2 em{font-family:"Playfair Display",serif;color:var(--orange)}
 .proof-note>span{color:var(--orange);font-size:18px}.proof-note strong{color:var(--white)}
 .proof-note div>span{color:#77746c}
 
+/* Student profile */
 .profile-strip{margin-top:14px;background:var(--panel);border:1px solid var(--line);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .profile-main{display:flex;align-items:center;gap:15px}.avatar{width:48px;height:48px;border:1px solid var(--orange);border-radius:50%;display:grid;place-items:center;color:var(--orange);font:600 18px "Playfair Display"}.profile-main h3{margin:0 0 4px;font-size:17px}.profile-main p{margin:0;color:var(--muted);font-size:12px}.profile-meta{display:flex;gap:22px;color:var(--muted);font:10px "DM Mono";text-transform:uppercase}.profile-meta b{display:block;color:var(--white);font:12px "DM Sans";margin-top:4px}
 .profile-page{padding:75px 0 130px;min-height:720px}.profile-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:14px;margin-top:35px}.profile-card{background:var(--panel);border:1px solid var(--line);padding:28px}.profile-avatar-large{width:90px;height:90px;border:1px solid var(--orange);border-radius:50%;display:grid;place-items:center;color:var(--orange);font:600 32px "Playfair Display";margin-bottom:18px}.profile-card h2{margin:0 0 8px;font-size:32px}.profile-card p{color:var(--muted);line-height:1.6}.profile-field{margin-bottom:18px}.profile-field label{display:block;font:10px "DM Mono";letter-spacing:.1em;color:var(--muted);margin-bottom:8px}.profile-field input,.profile-field select{width:100%;height:46px;background:#151513;color:var(--white);border:1px solid #45433c;padding:0 12px;outline:none}.profile-field input:focus,.profile-field select:focus{border-color:var(--orange)}
+/* Admin / assignment */
 .admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:35px}.admin-card{background:var(--panel);border:1px solid var(--line);padding:28px}.admin-card h2{font-size:30px;margin-top:0}.admin-note{color:var(--muted);font-size:13px;line-height:1.6}.assignment-result{margin-top:18px;padding:15px;border:1px solid #4d493e;color:#cfc9bc;display:none}.assignment-result.show{display:block}.assignment-result code{color:var(--orange)}
 
 .milestone{border-top:1px solid var(--line);margin-top:55px;padding-top:35px;display:flex;justify-content:space-between;align-items:end}
@@ -130,12 +117,16 @@ h1 em,h2 em{font-family:"Playfair Display",serif;color:var(--orange)}
 footer{border-top:1px solid var(--line);padding:25px 32px;display:flex;justify-content:space-between;color:#68665f;font:10px "DM Mono";letter-spacing:.08em}
 @media(max-width:760px){
   .navbar{padding:0 18px}.menu-btn{display:block}nav{display:none;position:absolute;top:74px;left:0;right:0;background:var(--bg);padding:20px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}nav.open{display:flex}
-  .container{width:min(100% - 32px,1180px)}.hero{padding-top:80px}.hero h1{font-size:52px}.hero-actions{flex-direction:column;align-items:flex-start}.stats{grid-template-columns:repeat(2,1fr);gap:20px}.stats div{border:0;padding:0}
+  .container{width:min(100% - 32px,1180px)}.hero{padding-top:80px}.hero h1{font-size:52px}.actions{flex-direction:column;align-items:flex-start}.stats{grid-template-columns:repeat(2,1fr);gap:20px}.stats div{border:0;padding:0}
   .two-col,.dashboard-grid{grid-template-columns:1fr}.recent{grid-column:auto}.page-head,.milestone{align-items:flex-start;gap:25px;flex-direction:column}.proof-intro{flex-direction:column;gap:10px}.proof-heading{gap:20px}.proof-card{padding:26px 18px}.proof-actions{flex-wrap:wrap}.tracks,.about-grid{grid-template-columns:1fr 1fr}.profile-grid,.admin-grid{grid-template-columns:1fr}.timeline-item{grid-template-columns:1fr}.timeline-day{padding-top:10px}
-  footer{padding:20px 16px;gap:10px;flex-direction:column}.quote{padding: 70px 0 90px} .btn{margin-top: 24px} 
+  footer{padding:20px 16px;gap:10px;flex-direction:column}
 }
 @media(max-width:480px){.tracks,.about-grid{grid-template-columns:1fr}.hero h1{font-size:46px}.cream{padding:75px 0}}
 
+
+/* =========================================
+   MOBILE APP NAVIGATION
+   ========================================= */
 .mobile-profile-button,
 .mobile-bottom-nav{display:none}
 
@@ -146,25 +137,53 @@ footer{border-top:1px solid var(--line);padding:25px 32px;display:flex;justify-c
   .navbar .logo span{width:25px;height:25px;font-size:15px}
   .menu-btn{font-size:22px;margin-left:4px}
 
+  /* Always-visible profile icon in the mobile app header */
   .mobile-profile-button{
-    display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;
-    margin-left:auto;margin-right:6px;border:1px solid var(--line);border-radius:50%;
-    background:var(--panel);color:var(--orange);text-decoration:none;
+    display:grid;
+    place-items:center;
+    width:38px;
+    height:38px;
+    flex:0 0 38px;
+    margin-left:auto;
+    margin-right:6px;
+    border:1px solid var(--line);
+    border-radius:50%;
+    background:var(--panel);
+    color:var(--orange);
+    text-decoration:none;
     font:600 12px "DM Sans",Arial,sans-serif;
     transition:transform .2s ease,border-color .2s ease,background .2s ease;
   }
   .mobile-profile-button:active{transform:scale(.94)}
   .mobile-profile-button.active{border-color:var(--orange);background:#24231e}
 
+  /* Mobile app bottom navigation */
   .mobile-bottom-nav{
-    position:fixed;display:grid;grid-template-columns:repeat(4,1fr);
-    left:10px;right:10px;top:auto;bottom:10px;height:62px;z-index:1000;padding:5px;
-    border:1px solid #3b3a34;border-radius:18px;background:rgba(25,25,22,.96);
-    backdrop-filter:blur(16px);box-shadow:0 10px 35px rgba(0,0,0,.35);
+    position:fixed;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    left:10px;
+    right:10px;
+    bottom:10px;
+    height:62px;
+    z-index:1000;
+    padding:5px;
+    border:1px solid #3b3a34;
+    border-radius:18px;
+    background:rgba(25,25,22,.96);
+    backdrop-filter:blur(16px);
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
   }
   .mobile-bottom-nav a{
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-    border-radius:13px;color:#817e74;text-decoration:none;font-size:10px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:3px;
+    border-radius:13px;
+    color:#817e74;
+    text-decoration:none;
+    font-size:10px;
     transition:background .2s ease,color .2s ease,transform .2s ease;
   }
   .mobile-bottom-nav a span{font-size:18px;line-height:1}
@@ -172,6 +191,7 @@ footer{border-top:1px solid var(--line);padding:25px 32px;display:flex;justify-c
   .mobile-bottom-nav a.active{background:#2b2a25;color:var(--orange)}
   .mobile-bottom-nav a:active{transform:scale(.94)}
 
+  /* Make content feel like a mobile app screen */
   main{animation:mobileScreenIn .35s cubic-bezier(.22,1,.36,1) both}
   main.mobile-screen-exit{animation:mobileScreenOut .22s ease forwards}
   @keyframes mobileScreenIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
@@ -181,6 +201,6 @@ footer{border-top:1px solid var(--line);padding:25px 32px;display:flex;justify-c
   .page-head h1{font-size:48px}
   .profile-strip{padding:15px}
   .profile-meta{display:none}
-  .proof-section{margin-top:40px;padding-top:35px}.milestone{padding-bottom:40px}
+  .proof-section{margin-top:40px;padding-top:35px}
   footer{padding-bottom:100px}
 }
