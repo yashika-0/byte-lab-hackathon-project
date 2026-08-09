@@ -22,13 +22,21 @@ export default function Dashboard() {
   const justSubmittedRef = useRef(false);
 
 // Initial load — runs only on the client, after mount
-  useEffect(() => {
-    const assignedStart = applyAssignmentFromUrl();
+useEffect(() => {
+  const assignedStart = applyAssignmentFromUrl();
+
+  setTimeout(() => {
     setProfile(getProfile());
     setTasks(getTasks());
-    const storedStart = parseInt(localStorage.getItem("abtalksStartDay") || "1", 10);
+
+    const storedStart = parseInt(
+      localStorage.getItem("abtalksStartDay") || "1",
+      10
+    );
+
     setStartDay(assignedStart ?? storedStart);
-  }, []);
+  }, 0);
+}, []);
 
   const next = tasks.length
     ? tasks.find((t) => !t.done && t.day >= startDay) || tasks[tasks.length - 1]
